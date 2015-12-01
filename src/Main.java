@@ -11,10 +11,15 @@ public class Main {
         if(userInput.hasNextLine()){
             enemyShipOption = userInput.nextLine();
         }
-        EnemyShip a = factory.createShip(enemyShipOption);
-        a.move();
-        a.shot();
-        a.takeDamage();
+        try{
+            EnemyShip a = factory.createShip(enemyShipOption);
+            a.move();
+            a.shot();
+            a.takeDamage();
+        }catch(ClassNotFoundException e){
+            System.err.println("Only R or U is available");
+            e.printStackTrace();
+        }
 
     }
 }
